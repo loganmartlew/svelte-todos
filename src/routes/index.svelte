@@ -8,7 +8,6 @@
   let todos: Todo[] = [];
 
   const addTodo = (text: string) => {
-    console.log(text);
     const newTodo = {
       id: uuid(),
       text,
@@ -17,10 +16,16 @@
 
     todos = [...todos, newTodo];
   };
+
+  const deleteTodo = (id: string) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+
+    todos = newTodos;
+  };
 </script>
 
 <Container>
   <h1>Todos in Svelte</h1>
   <TodoForm handleNewTodo={addTodo} />
-  <TodoList {todos} />
+  <TodoList {todos} handleDeleteTodo={deleteTodo} />
 </Container>

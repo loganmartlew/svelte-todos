@@ -4,6 +4,7 @@
   import type { Todo } from '../types/Todo';
 
   export let todos: Todo[];
+  export let handleDeleteTodo: (id: string) => void;
 </script>
 
 <Card>
@@ -12,7 +13,7 @@
   {:else}
     <div class="todos">
       {#each todos as todo}
-        <TodoItem {todo} />
+        <TodoItem {todo} {handleDeleteTodo} />
       {/each}
     </div>
   {/if}
