@@ -22,10 +22,20 @@
 
     todos = newTodos;
   };
+
+  const removeCompletedTodos = () => {
+    const newTodos = todos.filter((todo) => todo.complete !== true);
+
+    todos = newTodos;
+  };
+
+  const clearTodos = () => {
+    todos = [];
+  };
 </script>
 
 <Container>
   <h1>Todos in Svelte</h1>
   <TodoForm handleNewTodo={addTodo} />
-  <TodoList {todos} handleDeleteTodo={deleteTodo} />
+  <TodoList {todos} handleDeleteTodo={deleteTodo} {removeCompletedTodos} {clearTodos} />
 </Container>

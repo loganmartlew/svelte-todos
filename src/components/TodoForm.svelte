@@ -12,9 +12,10 @@
 </script>
 
 <Card>
+  <h2>Add A Todo</h2>
   <form on:submit|preventDefault={onSubmit}>
     <div class="form-control">
-      <label for="todo">Todo</label>
+      <label for="todo">New Todo</label>
       <input type="text" name="todo" id="todo" bind:value={text} />
     </div>
     <button type="submit">Add Todo</button>
@@ -22,6 +23,10 @@
 </Card>
 
 <style>
+  h2 {
+    margin: 0 0 0.7em 0;
+  }
+
   form {
     display: flex;
     flex-direction: column;
